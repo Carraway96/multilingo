@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Virus & Bakterier - Ukrainska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="biologi.html" class="nav-button">Biologi på Ukrainska</a>
+            <a href="../amnen/sex_och_Samlevnad.html" class="nav-button">Sex & Samlevnad på Ukrainska</a>
+        </div>        
+        <h1 class="video-title">Virus & Bakterier på Ukrainska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/lDurBFPwe94?si=9AoqsB1KhcfBzMZo" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Bakterie = Бактерія</p>
+            <p>2. Virus = Вірус</p>
+            <p>3. Parasit = Паразит</p>
+            <p>4. Infektion = Інфекція</p>
+            <p>5. Antibiotika = Антибіотик</p>
+            <p>6. Vaccination = Вакцинація</p>
+            <p>7. Antiviral = Противірусний засіб</p>
+            <p>8. Hygien = Гігієна</p>
+            <p>9. Mutation = Мутація</p>
+            <p>10. Värdcell = Клітина-хазяїн</p>
+            <p>11. Ekosystem = Екосистема</p>
+            <p>12. Nedbrytare = Розкладники</p>
+            <p>13. Kvävefixering = Фіксація азоту</p>
+            <p>14. Sanitet = Санітарія</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

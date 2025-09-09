@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Buddhism - Persiska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="religion.html" class="nav-button">Religion på Persiska</a>
+            <a href="hinduism.html" class="nav-button">Hinduism på Persiska</a>
+        </div>        
+        <h1 class="video-title">Buddhism på Persiska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/FgdNZA8h93g?si=nLM4wbDmfjXe1nnU" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Buddha = بودا</p>  
+            <p>2. Siddharta Gautama = سیدارتا گوتاما</p>  
+            <p>3. Reinkarnation = تناسخ</p>  
+            <p>4. Nirvana = نیروانا</p>  
+            <p>5. Samsara = سامسارا</p>  
+            <p>6. Karma = کارما</p>  
+            <p>7. Den åttafaldiga vägen = راه هشتگانه</p>  
+            <p>8. Gyllene medelvägen = راه میانه طلایی</p>  
+            <p>9. Asketism = ریاضت</p>  
+            <p>10. Brahman = برهمن</p>  
+            <p>11. Lidande = رنج</p>  
+            <p>12. Begär = هوس</p>  
+            <p>13. Upplysning = روشن‌گری</p>  
+            <p>14. Meditation = مراقبه</p>  
+            <p>15. Återfödelse = باززایی</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

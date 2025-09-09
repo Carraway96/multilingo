@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalla Kriget - Ukrainska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="historia.html" class="nav-button">Historia på Ukrainska</a>
+            <a href="../amnen/flodkulturer.html" class="nav-button">Flodkulturer på Ukrainska</a>
+        </div>        
+        <h1 class="video-title">Kalla Kriget på Ukrainska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dp_wTOZNdB4?si=BUe_iZ-gSjLDOpdM" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Kapitalism = Капіталізм</p>
+            <p>2. Kommunism = Комунізм</p>
+            <p>3. Proxykonflikt = Проксі-конфлікт</p>
+            <p>4. Enpartistat = Однопартійна держава</p>
+            <p>5. Planekonomi = Планова економіка</p>
+            <p>6. Statligt företag = Державне підприємство</p>
+            <p>7. Privat företag = Приватне підприємство</p>
+            <p>8. Glasnost = Гласність</p>
+            <p>9. Perestrojka = Перебудова</p>
+            <p>10. Järnridån = Залізна завіса</p>
+            <p>11. Berlinmuren = Берлінський мур</p>
+            <p>12. Kalla kriget = Холодна війна</p>
+            <p>13. Dominoteorin = Теорія доміно</p>
+            <p>14. Kubakrisen = Кубинська криза</p>
+            <p>15. Marknadsekonomi = Ринкова економіка</p>
+            <p>16. Kapprustning = Гонка озброєнь</p>
+            <p>17. Ideologi = Ідеологія</p>
+            <p>18. Nato = НАТО</p>
+            <p>19. Warszawapakten = Варшавський договір</p>
+            <p>20. Östblocket = Східний блок</p>
+            <p>21. Västblocket = Західний блок</p>
+            <p>22. Demokrati = Демократія</p>
+            <p>23. Totalitär = Тоталітарний</p>
+            <p>24. Propaganda = Пропаганда</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

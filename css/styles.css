@@ -1,0 +1,491 @@
+/* ========== Importera Typsnitt ========== */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Pacifico&display=swap');
+
+/* ========== Basstilar ========== */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: radial-gradient(circle, #ffffff 0%, #ffffff 100%);
+    /* Ta bort display: flex; */
+}
+
+main {
+    /* Ta bort flex: 1; */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ========== Header ========== */
+
+header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #003366;
+    color: #fff;
+}
+
+header img {
+    max-width: 200px;
+    height: auto;
+}
+
+.tagline {
+    font-family: 'Monteserrat', cursive;
+    font-size: 4em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+/* ========== Sektionstitlar ========== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 2em;
+    color: #003366;
+    margin: 0;
+}
+
+/* ========== Grid Layouter ========== */
+
+/* Språk-, Ämnes- och Videogrid */
+.language-grid,
+.subject-grid,
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+/* ========== Alternativstilar ========== */
+
+/* Språk- och Ämnesalternativ */
+.language-option,
+.subject-option {
+    width: 22%;
+    margin: 1%;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.language-option img,
+.subject-option img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #003366;
+    background-color: #fff;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.language-option span,
+.subject-option span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Videoalternativ */
+.video-option {
+    width: 200px;
+    margin: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.video-option img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid #003366;
+    background-color: #fff;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-option span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: inherit;
+}
+
+.video-option:hover span {
+    color: #003366;
+}
+
+/* Hovereffekter för bilder och text */
+.language-option:hover img,
+.subject-option:hover img,
+.video-option:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.language-option:hover span,
+.subject-option:hover span,
+.video-option:hover span {
+    color: #003366;
+}
+
+/* ========== Videosektion ========== */
+
+.video-title {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: #003366;
+    margin: 20px 0 10px 0;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 40%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========== Knappar ========== */
+
+/* Allmänna knappstilar */
+.button,
+.nav-button,
+.action-button,
+.content-button,
+.contact-container button {
+    padding: 10px 20px;
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.button:hover,
+.nav-button:hover,
+.action-button:hover,
+.content-button:hover,
+.contact-container button:hover {
+    background-color: #002244;
+}
+
+/* Toggle-knapp för Begrepp */
+#toggleConcepts {
+    display: block;
+    margin: 20px auto;
+}
+
+/* ========== Navigeringsknappar ========== */
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/*=======Toggle-knapp för årskurs========*/
+
+.grade-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grade-button {
+    padding: 10px 20px;
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+.grade-button:hover {
+    background-color: #002244;
+}
+
+.grade-button.active {
+    background-color: #0055a5;
+}
+
+.language-option.hidden {
+    display: none;
+}
+
+/* ========== Videofunktioner ========== */
+
+.video-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+/* ========== Innehållssektioner ========== */
+
+#conceptsText {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+    line-height: 1.6;
+    display: none;
+}
+
+.content-index {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.content-section {
+    display: none;
+    margin: 20px 0;
+}
+
+/* ========== Tvåspråkiga Sektioner ========== */
+
+.dual-language {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.language-text {
+    width: 45%;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-text.left-align {
+    text-align: left;
+}
+
+.language-text.right-align {
+    text-align: right;
+}
+
+.language-text h2 {
+    font-size: 1.5em;
+    color: #003366;
+}
+
+.language-text p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.language-text img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Meningar och hovereffekt */
+.language-text .sentence {
+    display: inline;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.language-text .sentence:hover,
+.language-text .sentence.highlight {
+    background-color: #eef07df7;
+}
+
+/* ========== Kontakt- och Om Oss-sektioner ========== */
+
+.contact-container,
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-container label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contact-container input,
+.contact-container textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-container button {
+    margin-top: 20px;
+    /* Stilar finns under Knappar */
+}
+
+.about-container p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+/* ========== Footer ========== */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366;
+    color: #fff;
+    position: relative;
+}
+
+footer a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ========== Media Queries ========== */
+
+/* Stora skärmar */
+@media (max-width: 1024px) {
+    .language-option,
+    .subject-option {
+        width: 30%;
+    }
+    .video-option {
+        width: 45%;
+    }
+}
+
+/* Medelstora skärmar */
+@media (max-width: 768px) {
+    .language-option,
+    .subject-option,
+    .video-option {
+        width: 45%;
+        margin: 2.5%;
+    }
+
+    header img {
+        max-width: 150px;
+    }
+
+    .video-container {
+        max-width: 100%;
+    }
+
+    .language-text {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .dual-language {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #toggleConcepts {
+        width: 80%;
+    }
+}
+
+/* Små skärmar */
+@media (max-width: 480px) {
+    .language-option,
+    .subject-option,
+    .video-option {
+        width: 45%;
+        margin: 2.5%;
+    }
+
+    header img {
+        max-width: 120px;
+    }
+
+    .tagline {
+        font-size: 1.2em;
+    }
+
+    .navigation-buttons,
+    .video-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-button,
+    .action-button {
+        width: 100%;
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+}
+
+/* ========== Utility-klasser ========== */
+
+.red-text {
+    color: red;
+}
+
+/* ========== Kontakt ========== */
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.social-links i {
+    margin-right: 10px;
+}
+
+.social-links a:hover {
+    color: #0077b5; /* LinkedIn-blå eller YouTube-röd om du föredrar */
+}

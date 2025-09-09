@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Islam - Ryska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="religion.html" class="nav-button">Religion på Ryska</a>
+            <a href="../amnen/kristendom.html" class="nav-button">kristendom på Ryska</a>
+        </div>       
+        <h1 class="video-title">Islam på Ryska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/lzUWXkCXbiI?si=eIFPnafJnfZj0usk" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Monoteism = Монотеизм</p>
+            <p>2. Polyteism = Политеизм</p>
+            <p>3. Imam = Имам</p>
+            <p>4. Muslim = Мусульманин</p>
+            <p>5. Abrahamitiska religioner = Авраамические религии</p>
+            <p>6. Abraham (stamfader) = Авраам (прародитель)</p>
+            <p>7. Ramadan = Рамадан</p>
+            <p>8. Mekka = Мекка</p>
+            <p>9. Eid al-Fitr = Ид аль-Фитр</p>
+            <p>10. Hijab = Хиджаб</p>
+            <p>11. Tempelberget = Храмовая гора</p>
+            <p>12. Ärkeängeln Gabriel = Архангел Гавриил</p>
+            <p>13. Sunni = Сунниты</p>
+            <p>14. Shia = Шииты</p>
+            <p>15. Medina = Медина</p>
+            <p>16. Trosbekännelsen = Шахада (или вероисповедание)</p>
+            <p>17. Bönen = Молитва</p>
+            <p>18. Fastan = Пост</p>
+            <p>19. Vallfärden = Паломничество (Хадж)</p>
+            <p>20. Bibeln = Библия</p>
+            <p>21. Koranen = Коран</p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

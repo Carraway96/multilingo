@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Franska Revolutionen - Spanska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main><div class="navigation-buttons">
+        <a href="historia.html" class="nav-button">Historia på Spanska</a>
+        <a href="../amnen/amerikanska_revolutionen.html" class="nav-button">Franska Revolutionen på Spanska</a>
+    </div>        
+        <h1 class="video-title">Franska Revolutionen på Spanska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/hf6MyMQi91I?si=qlD7PI6ILYVQ2nWp" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Revolution = Revolución</p>
+            <p>2. Kung = Rey</p>
+            <p>3. Adel = Nobleza</p>
+            <p>4. Präster = Sacerdotes</p>
+            <p>5. Bönder = Campesinos</p>
+            <p>6. Ståndssamhället = Sociedad estamental</p>
+            <p>7. Privilegier = Privilegios</p>
+            <p>8. Ämbeten = Cargos</p>
+            <p>9. Missväxt = Mala cosecha</p>
+            <p>10. Bröd = Pan</p>
+            <p>11. Pengar = Dinero</p>
+            <p>12. Jord/mark = Tierra</p>
+            <p>13. Generalständerna = Estados Generales</p>
+            <p>14. Eden i bollhuset = Juramento del Juego de Pelota</p>
+            <p>15. Grundlag = Constitución</p>
+            <p>16. Nationalförsamlingen = Asamblea Nacional</p>
+            <p>17. Stormningen av Bastiljen = Toma de la Bastilla</p>
+            <p>18. Kungafamiljen = Familia Real</p>
+            <p>19. Skräckväldet = Reinado del Terror</p>
+            <p>20. Avrättning = Ejecución</p>
+            <p>21. Napoleon = Napoleón</p>
+         </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

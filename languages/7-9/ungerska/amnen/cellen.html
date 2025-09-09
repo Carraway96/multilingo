@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Cellen - Ungerska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="biologi.html" class="nav-button">Biologi på Ungerska</a>
+            <a href="../amnen/levande_organismer.html" class="nav-button">Levande Organismer på Ungerska</a>
+        </div>        
+        <h1 class="video-title">Cellen på Ungerska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/5kcgixRpnT8?si=H68QS84TYNNtuhnk" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>Djurcell = Állati sejt</p>
+            <p>Organeller = Sejtalkotók</p>
+            <p>Cellkärna = Sejtmag</p>
+            <p>Cellmembran = Sejthártya</p>
+            <p>Cellplasma (Cytoplasma) = Sejtplazma (Citoplazma)</p>
+            <p>Mitokondrier = Mitokondriumok</p>
+            <p>Ribosomer = Riboszómák</p>
+            <p>Golgiapparaten = Golgi-készülék</p>
+            <p>Endoplasmatiskt nätverk (ER) = Endoplazmatikus hálózat (ER)</p>
+            <p>Lysosomer = Lizoszómák</p>
+            <p>Cellvägg = Sejtfal</p>
+            <p>Kloroplaster = Kloroplasztok</p>
+            <p>Vakuol = Vakuólum</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

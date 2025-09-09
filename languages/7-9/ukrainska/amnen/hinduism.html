@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Amerikanska Revolutionen - Ukrainska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="religion.html" class="nav-button">Religion på Ukrainska</a>
+            <a href="../amnen/judendom.html" class="nav-button">Judendom på Ukrainska</a>
+        </div>        
+        <h1 class="video-title">Hinduism på Ukrainska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/vIKrzAYyK3Y?si=toPonMmMqDv3lbmJ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Reinkarnation = Реінкарнація</p>
+            <p>2. Karma = Карма</p>
+            <p>3. Moksha = Мокша</p>
+            <p>4. Samsara = Самсара</p>
+            <p>5. Vedaskrifterna = Веди</p>
+            <p>6. Upanishaderna = Упанішади</p>
+            <p>7. Bhagavad Gita = Бгагавад-Гіта</p>
+            <p>8. Ramayana = Рамаяна</p>
+            <p>9. Puja = Пуджа</p>
+            <p>10. Diwali = Дівалі</p>
+            <p>11. Holi = Холі</p>
+            <p>12. Kastsystemet = Кастова система</p>
+            <p>13. Brahma = Брахма</p>
+            <p>14. Vishnu = Вішну</p>
+            <p>15. Shiva = Шіва</p>
+            <p>16. Ganesha = Ганеша</p>
+            <p>17. Daliter = Даліти</p>
+            <p>18. Brahmin = Брахман</p>
+            <p>19. Kshatriya = Кшатрії</p>
+            <p>20. Vaishya = Вайш'я</p>
+            <p>21. Shudra = Шудра</p>
+            <p>22. Atman = Атман</p>
+            <p>23. Brahman = Брахман</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Islam - Thailändska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="religion.html" class="nav-button">Religion på Thailändska</a>
+            <a href="../amnen/judendom.html" class="nav-button">Judendom på Thailändska</a>
+        </div>        
+        <h1 class="video-title">Islam på Thailändska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/2tqXxUDSisU?si=czJgsL1tr7XIPLyf" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Monoteism = ลัทธิเอกเทวนิยม</p>
+            <p>2. Polyteism = ลัทธิพหุเทวนิยม</p>
+            <p>3. Imam = อิหม่าม</p>
+            <p>4. Muslim = มุสลิม</p>
+            <p>5. Abrahamitiska religioner = ศาสนาอับราฮัม</p>
+            <p>6. Abraham (stamfader) = อับราฮัม (บรรพบุรุษ)</p>
+            <p>7. Ramadan = รอมฎอน</p>
+            <p>8. Mekka = เมกกะ</p>
+            <p>9. Eid al-Fitr = อีดุลฟิตริ</p>
+            <p>10. Hijab = ฮิญาบ</p>
+            <p>11. Tempelberget = เขาวิหาร</p>
+            <p>12. Ärkeängeln Gabriel = อัครเทวทูตกาเบรียล</p>
+            <p>13. Sunni = ซุนนี</p>
+            <p>14. Shia = ชีอะห์</p>
+            <p>15. Medina = เมดินา</p>
+            <p>16. Trosbekännelsen = คำปฏิญาณในศาสนา (ชะฮาดะฮ์)</p>
+            <p>17. Bönen = การละหมาด</p>
+            <p>18. Fastan = การถือศีลอด</p>
+            <p>19. Vallfärden = การแสวงบุญ (ฮัจญ์)</p>
+            <p>20. Bibeln = คัมภีร์ไบเบิล</p>
+            <p>21. Koranen = คัมภีร์อัลกุรอาน</p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

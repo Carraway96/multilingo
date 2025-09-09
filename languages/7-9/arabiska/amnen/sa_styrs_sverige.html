@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Så Styrs Sverige - Arabiska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="samhallskunskap.html" class="nav-button">Samhällskunskap på Arabiska</a>
+            <a href="../amnen/politiska_ideologier.html" class="nav-button">Politiska Ideologier på Arabiska</a>
+        </div>         
+        <h1 class="video-title">Så Styrs Sverige på Arabiska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/HYkVnTxEruA?si=mBTPZpUmwG3xqGl-" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Budget = الميزانية</p>
+            <p>2. Demokrati = الديمقراطية</p>
+            <p>3. Val = الانتخابات</p>
+            <p>4. Politik = السياسة</p>
+            <p>5. Riksdag = البرلمان</p>
+            <p>6. Regering = الحكومة</p>
+            <p>7. Regeringschef = رئيس الحكومة</p>
+            <p>8. Statsminister = رئيس الوزراء</p>
+            <p>9. Majoritetsregering = حكومة الأغلبية</p>
+            <p>10. Minoritetsregering = حكومة الأقلية</p>
+            <p>11. Parlamentarism = البرلمانية</p>
+            <p>12. Lag = القانون</p>
+            <p>13. Utskott = اللجنة</p>
+            <p>14. Parti = الحزب</p>
+            <p>15. Talman = رئيس البرلمان</p>
+            <p>16. Media = وسائل الإعلام</p>
+            <p>17. Proposition = الاقتراح</p>
+            <p>18. Motion = المبادرة</p>
+            <p>19. Plenisal = قاعة الجلسات</p>
+            <p>20. Regeringsformen = الدستور</p>
+            <p>21. Successionsordningen = قانون الخلافة</p>
+            <p>22. Tryckfrihetsförordning = قانون حرية الصحافة</p>
+            <p>23. Yttrandefrihetsgrundlagen = قانون حرية التعبير</p>
+            <p>24. Kommunfullmäktige = مجلس البلدية</p>
+            <p>25. Kommunstyrelse = اللجنة الإدارية للبلدية</p>
+            <p>26. Sjukvård = الرعاية الصحية</p>
+            <p>27. Lokaltrafik = النقل المحلي</p>
+            <p>28. Skatt = الضريبة</p>
+            <p>29. EU = الاتحاد الأوروبي</p>
+            <p>30. Europaparlamentet = البرلمان الأوروبي</p>
+            <p>31. Ministerrådet = مجلس الوزراء</p>
+            <p>32. EU-kommissionen = المفوضية الأوروبية</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Samhällsekonomi - Ukrainska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="samhallskunskap.html" class="nav-button">Samhällskunskap på Ukrainska</a>
+            <a href="../amnen/lag_och_ratt.html" class="nav-button">Lag & Rätt på Ukrainska</a>
+        </div>         
+        <h1 class="video-title">Samhällsekonomi på Ukrainska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/j8Sp83UwC2Q?si=D27jg0jSmV4htaQ2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Utbud = Пропозиція</p>
+            <p>2. Efterfrågan = Попит</p>
+            <p>3. Konjunktur = Кон'юнктура</p>
+            <p>4. Högkonjunktur = Підйом економіки</p>
+            <p>5. Lågkonjunktur = Спад економіки</p>
+            <p>6. Inflation = Інфляція</p>
+            <p>7. Ränta = Відсоткова ставка</p>
+            <p>8. Konsumtion = Споживання</p>
+            <p>9. Konkurrens = Конкуренція</p>
+            <p>10. Skatt = Податок</p>
+            <p>11. Marknadsekonomi = Ринкова економіка</p>
+            <p>12. Planekonomi = Планова економіка</p>
+            <p>13. Blandekonomi = Змішана економіка</p>
+            <p>14. Produktionsfaktorer = Фактори виробництва</p>
+            <p>15. Välfärd = Добробут</p>
+            <p>16. Offentlig sektor = Державний сектор</p>
+            <p>17. Hushåll = Домогосподарство</p>
+            <p>18. Bank = Банк</p>
+            <p>19. Industri = Промисловість</p>
+            <p>20. Företag = Підприємство</p>
+            <p>21. Handelsbalans = Торговий баланс</p>
+            <p>22. Export = Експорт</p>
+            <p>23. Import = Імпорт</p>
+            <p>24. Råvaror = Сировина</p>
+            <p>25. Realkapital = Реальний капітал</p>
+            <p>26. Arbetskraft = Робоча сила</p>
+            <p>27. Finanskapital = Фінансовий капітал</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Politiska Ideologier - Ryska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="samhallskunskap.html" class="nav-button">Samhällskunskap på Ryska</a>
+            <a href="../amnen/sa_styrs_sverige.html" class="nav-button">Så Styrs Sverige på Ryska</a>
+        </div>         
+        <h1 class="video-title">Politiska Ideologier på Ryska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/v_9OPOgFOiw?si=Fg831t6Rt7gvyzz3" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Ideologi = Идеология</p>
+            <p>2. Socialism = Социализм</p>
+            <p>3. Liberalism = Либерализм</p>
+            <p>4. Konservatism = Консерватизм</p>
+            <p>5. Ekologism = Экологизм</p>
+            <p>6. Feminism = Феминизм</p>
+            <p>7. Välfärd = Благосостояние</p>
+            <p>8. Frihet = Свобода</p>
+            <p>9. Äganderätt = Право собственности</p>
+            <p>10. Skatter = Налоги</p>
+            <p>11. Fackförening = Профсоюз</p>
+            <p>12. Jämlikhet = Равенство</p>
+            <p>13. Stereotyper = Стереотипы</p>
+            <p>14. Klimatförändringar = Изменение климата</p>
+            <p>15. Miljö = Окружающая среда</p>
+            <p>16. Hållbarhet = Устойчивость</p>
+            <p>17. Könsfördelning = Гендерное распределение</p>
+            <p>18. Representation = Представительство</p>
+            <p>19. Vänster-högerskalan = Лево-правый спектр</p>
+            <p>20. Staten = Государство</p>
+            <p>21. Privat ägande = Частная собственность</p>
+            <p>22. Ekonomisk tillväxt = Экономический рост</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

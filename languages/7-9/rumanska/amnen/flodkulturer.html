@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Flodkulturer - Rumänska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="historia.html" class="nav-button">Historia på Rumänska</a>
+        </div>       
+        <h1 class="video-title">Flodkulturer på Rumänska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/WPrtppyMEh8?si=ItUDzUIFUBFeOsgH" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Egypten = Egipt</p>
+            <p>2. Nilen = Nilul</p>
+            <p>3. Epok = Epocă</p>
+            <p>4. Farao = Faraon</p>
+            <p>5. Jägare och samlare = Vânători și culegători</p>
+            <p>6. Bördiga halvmånen = Semiluna fertilă</p>
+            <p>7. Åkerbruk (Jordbruk) = Agricultură</p>
+            <p>8. Översvämningssäsong = Sezonul inundațiilor</p>
+            <p>9. Konstbevattning = Irigație</p>
+            <p>10. Gamla riket = Vechiul Regat</p>
+            <p>11. Mellersta riket = Regatul Mijlociu</p>
+            <p>12. Nya riket = Noul Regat</p>
+            <p>13. Stridsvagn = Care de luptă</p>
+            <p>14. Bönder = Țărani</p>
+            <p>15. Livegna = Iobagi</p>
+            <p>16. Balsamering = Îmbălsămare</p>
+            <p>17. Civilisation = Civilizație</p>
+            <p>18. Inbördeskrig = Război civil</p>
+            <p>19. Pyramid = Piramidă</p>
+            <p>20. Hieroglyfer = Hieroglife</p>
+            <p>21. Mumifiering = Mumificare</p>
+            <p>22. Rosettastenen = Piatra din Rosetta</p>
+            <p>23. Torka = Secetă</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

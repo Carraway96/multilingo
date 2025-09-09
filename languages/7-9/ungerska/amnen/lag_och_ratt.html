@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Lag & Rätt - Ungerska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="samhallskunskap.html" class="nav-button">Samhällskunskap på Ungerska</a>
+        </div>       
+        <h1 class="video-title">Lag & Rätt på Ungerska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/yQpZcyUVL5I?si=YF8bCnEt8UHKlzH9" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Rättvisa = Igazságosság</p>
+            <p>2. Rättsstat = Jogállam</p>
+            <p>3. Lagar = Törvények</p>
+            <p>4. Myndigheter = Hatóságok</p>
+            <p>5. Polis = Rendőrség</p>
+            <p>6. Domstol = Bíróság</p>
+            <p>7. Rättssäkerhet = Jogbiztonság</p>
+            <p>8. Överklaga = Fellebbezés</p>
+            <p>9. Bevis = Bizonyíték</p>
+            <p>10. Gripande = Letartóztatás</p>
+            <p>11. Anhållen = Őrizetben</p>
+            <p>12. Häktning = Előzetes letartóztatás</p>
+            <p>13. Åklagare = Ügyész</p>
+            <p>14. Försvarsadvokat = Védőügyvéd</p>
+            <p>15. Rättegång = Tárgyalás</p>
+            <p>16. Domare = Bíró</p>
+            <p>17. Nämndeman = Ülnök</p>
+            <p>18. Notarie = Jegyző</p>
+            <p>19. Vittne = Tanú</p>
+            <p>20. Brottmål = Büntetőügy</p>
+            <p>21. Tvistemål = Polgári per</p>
+            <p>22. Hovrätt = Fellebbviteli bíróság</p>
+            <p>23. Högsta domstolen = Legfelsőbb Bíróság</p>
+            <p>24. Straff = Büntetés</p>
+            <p>25. Böter = Pénzbírság</p>
+            <p>26. Villkorlig dom = Feltételes ítélet</p>
+            <p>27. Fotboja = Lábbilincs</p>
+            <p>28. Sluten psykiatrisk vård = Zárt pszichiátriai kezelés</p>
+            <p>29. Fängelse = Börtön</p>
+            <p>30. Säkerhetsklass = Biztonsági osztály</p>
+            <p>31. Straffmyndig = Büntethető korú</p>
+            <p>32. Ungdomsbrottslighet = Ifjúsági bűnözés</p>
+            <p>33. Rehabilitering = Rehabilitáció</p>
+            <p>34. Permission = Eltávozás</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

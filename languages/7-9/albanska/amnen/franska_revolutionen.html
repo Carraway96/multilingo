@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Franska Revolutionen - Albanska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="historia.html" class="nav-button">Historia på Albanska</a>
+            <a href="../amnen/amerikanska_revolutionen.html" class="nav-button">Amerikanska Revolutionen på Albanska</a>
+        </div>       
+        <h1 class="video-title">Franska Revolutionen på Albanska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/sZN_dgsGJcg?si=XJLmauYSC2JLHkD_" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Revolution = Revolucioni</p>
+            <p>2. Kung = Mbret</p>
+            <p>3. Adel = Fisnikëria</p>
+            <p>4. Präster = Klerikët</p>
+            <p>5. Bönder = Fshatarët</p>
+            <p>6. Ståndssamhället = Shoqëria e klasave</p>
+            <p>7. Privilegier = Privilegjet</p>
+            <p>8. Ämbeten = Pozitat</p>
+            <p>9. Missväxt = Dështimi i të korrave</p>
+            <p>10. Bröd = Bukë</p>
+            <p>11. Pengar = Para</p>
+            <p>12. Jord/mark = Tokë</p>
+            <p>13. Generalständerna = Shtetet e Përgjithshme</p>
+            <p>14. Eden i bollhuset = Betimi në Shtëpinë e Topit</p>
+            <p>15. Grundlag = Kushtetuta</p>
+            <p>16. Nationalförsamlingen = Asambleja Kombëtare</p>
+            <p>17. Stormningen av Bastiljen = Sulmi mbi Bastijën</p>
+            <p>18. Kungafamiljen = Familja Mbretërore</p>
+            <p>19. Skräckväldet = Mbretëria e Terrorit</p>
+            <p>20. Avrättning = Ekzekutimi</p>
+            <p>21. Napoleon = Napoleoni</p>
+         </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

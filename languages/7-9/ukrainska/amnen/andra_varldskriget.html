@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Andra Världskriget - Ukrainska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="historia.html" class="nav-button">Historia på Ukrainska</a>
+            <a href="../amnen/forintelsen.html" class="nav-button">Förintelsen på Ukrainska</a>
+        </div>        
+        <h1 class="video-title">Andra Världskriget på Ukrainska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Tstt8x6QuVY?si=IxGlj57c5Xxrmg9Z" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Versaillesfreden = Версальський мир</p>
+            <p>2. Hitler = Гітлер</p>
+            <p>3. Stalin = Сталін</p>
+            <p>4. Roosevelt = Рузвельт</p>
+            <p>5. Churchill = Черчилль</p>
+            <p>6. Nazistpartiet = Нацистська партія</p>
+            <p>7. Luftwaffe = Люфтваффе</p>
+            <p>8. Flotta = Флот</p>
+            <p>9. Polen = Польща</p>
+            <p>10. Norge = Норвегія</p>
+            <p>11. Danmark = Данія</p>
+            <p>12. Storbritannien = Велика Британія</p>
+            <p>13. Sovjetunionen = Радянський Союз</p>
+            <p>14. Rhenlandet = Рейнська область</p>
+            <p>15. Lebensraum = Життєвий простір</p>
+            <p>16. Molotov-Ribbentrop-pakten = Пакт Молотова-Ріббентропа</p>
+            <p>17. Östfronten = Східний фронт</p>
+            <p>18. Västfronten = Західний фронт</p>
+            <p>19. Blitzkrieg = Бліцкриг</p>
+            <p>20. Finska Vinterkriget = Фінська зимова війна</p>
+            <p>21. Pearl Harbor = Перл-Гарбор</p>
+            <p>22. Operation Barbarossa = Операція Барбаросса</p>
+            <p>23. Stalingrad = Сталінград</p>
+            <p>24. D-Dagen = День Д</p>
+            <p>25. Atombomben = Атомна бомба</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

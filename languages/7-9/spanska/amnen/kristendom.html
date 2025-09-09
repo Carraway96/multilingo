@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Amerikanska Revolutionen - Spanska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="religion.html" class="nav-button">Religion på Spanska</a>
+            <a href="../amnen/islam.html" class="nav-button">Islam på Spanska</a>
+        </div>       
+        <h1 class="video-title">Kristendom på Spanska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/HmKb88aICJ4?si=vZt2p7cGKXOq8EEy" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Kristendom = Cristianismo</p>
+            <p>2. Judendom = Judaísmo</p>
+            <p>3. Jungfru Maria = Virgen María</p>
+            <p>4. Ängeln Gabriel = Ángel Gabriel</p>
+            <p>5. Jesus Kristus = Jesucristo</p>
+            <p>6. Messias = Mesías</p>
+            <p>7. Betlehem = Belén</p>
+            <p>8. Romerska riket = Imperio Romano</p>
+            <p>9. Korsfästelse = Crucifixión</p>
+            <p>10. Uppståndelse = Resurrección</p>
+            <p>11. Gamla testamentet = Antiguo Testamento</p>
+            <p>12. Nya testamentet = Nuevo Testamento</p>
+            <p>13. Bibeln = La Biblia</p>
+            <p>14. Treenigheten = Trinidad</p>
+            <p>15. Katolicism = Catolicismo</p>
+            <p>16. Påve = Papa</p>
+            <p>17. Sakrament = Sacramento</p>
+            <p>18. Dop = Bautismo</p>
+            <p>19. Nattvard = Eucaristía</p>
+            <p>20. Bikt = Confesión</p>
+            <p>21. Konfirmation = Confirmación</p>
+            <p>22. Äktenskap = Matrimonio</p>
+            <p>23. Ortodox kristendom = Cristianismo ortodoxo</p>
+            <p>24. Protestantism = Protestantismo</p>
+            <p>25. Martin Luther = Martín Lutero</p>
+            <p>26. Reformationen = Reforma</p>
+            <p>27. Kolonisation = Colonización</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Amerikanska Revolutionen - Spanska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="historia.html" class="nav-button">Historia på Spanska</a>
+            <a href="../amnen/franska_revolutionen.html" class="nav-button">Franska Revolutionen på Spanska</a>
+        </div>        
+        <h1 class="video-title">Amerikanska Revolutionen på Spanska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/-Ti00y0YWqI?si=2GSf_eeALQM1ZjXp" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Politisk revolution = Revolución política</p>
+            <p>2. Upplysningen = Ilustración</p>
+            <p>3. Frankrike = Francia</p>
+            <p>4. Storbritannien = Reino Unido</p>
+            <p>5. Kolonierna = Colonias</p>
+            <p>6. Taxering = Impuestos</p>
+            <p>7. Sjuårskriget = Guerra de los Siete Años</p>
+            <p>8. Boston Tea Party = Motín del Té de Boston</p>
+            <p>9. Identitet = Identidad</p>
+            <p>10. Självständighetsförklaringen = Declaración de Independencia</p>
+            <p>11. Amerikanska frihetskriget = Guerra de Independencia de los Estados Unidos</p>
+            <p>12. Kongressen = Congreso</p>
+            <p>13. President = Presidente</p>
+            <p>14. Domstol = Tribunal</p>
+            <p>15. Maktdelning = Separación de poderes</p>
+            <p>16. George Washington = George Washington</p>
+            <p>17. Historiebruk = Uso de la historia</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

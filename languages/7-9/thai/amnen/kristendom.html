@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Amerikanska Revolutionen - Thailändska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="religion.html" class="nav-button">Religion på Thailändska</a>
+            <a href="../amnen/islam.html" class="nav-button">Islam på Thailändska</a>
+        </div>        
+        <h1 class="video-title">Kristendom på Thailändska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/hXLUz_DV1fQ?si=Um1GrfPLLs96TGwe" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Kristendom = ศาสนาคริสต์</p>
+            <p>2. Judendom = ศาสนายูดาย</p>
+            <p>3. Jungfru Maria = พระแม่มารี</p>
+            <p>4. Ängeln Gabriel = ทูตสวรรค์กาเบรียล</p>
+            <p>5. Jesus Kristus = พระเยซูคริสต์</p>
+            <p>6. Messias = พระเมสสิยาห์</p>
+            <p>7. Betlehem = เมืองเบธเลเฮม</p>
+            <p>8. Romerska riket = จักรวรรดิโรมัน</p>
+            <p>9. Korsfästelse = การตรึงกางเขน</p>
+            <p>10. Uppståndelse = การคืนพระชนม์</p>
+            <p>11. Gamla testamentet = พันธสัญญาเดิม</p>
+            <p>12. Nya testamentet = พันธสัญญาใหม่</p>
+            <p>13. Bibeln = คัมภีร์ไบเบิล</p>
+            <p>14. Treenigheten = พระตรีเอกภาพ</p>
+            <p>15. Katolicism = ศาสนาคริสต์นิกายโรมันคาทอลิก</p>
+            <p>16. Påve = พระสันตะปาปา</p>
+            <p>17. Sakrament = ศีลศักดิ์สิทธิ์</p>
+            <p>18. Dop = ศีลล้างบาป</p>
+            <p>19. Nattvard = ศีลมหาสนิท</p>
+            <p>20. Bikt = ศีลอภัยบาป</p>
+            <p>21. Konfirmation = ศีลกำลัง</p>
+            <p>22. Äktenskap = ศีลสมรส</p>
+            <p>23. Ortodox kristendom = ศาสนาคริสต์นิกายอีสเทิร์นออร์ทอดอกซ์</p>
+            <p>24. Protestantism = ศาสนาคริสต์นิกายโปรเตสแตนต์</p>
+            <p>25. Martin Luther = มาร์ติน ลูเทอร์</p>
+            <p>26. Reformationen = การปฏิรูปศาสนาคริสต์</p>
+            <p>27. Kolonisation = การล่าอาณานิคม</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

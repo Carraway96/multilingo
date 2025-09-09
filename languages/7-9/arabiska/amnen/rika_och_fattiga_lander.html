@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Rika & Fattiga Länder - Arabiska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="geografi.html" class="nav-button">Geografi på Arabiska</a>
+            <a href="../amnen/klimatforandringar.html" class="nav-button">Klimatförändringar på Arabiska</a>
+        </div>        
+        <h1 class="video-title">Rika & Fattiga Länder på Arabiska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/lFBvCA1kK8I?si=Scai-0nfkLDHg7el" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. U-land = دولة نامية</p>
+            <p>2. I-land = دولة صناعية متقدمة</p>
+            <p>3. HDI = مؤشر التنمية البشرية</p>
+            <p>4. BNI = الدخل القومي الإجمالي</p>
+            <p>5. Världsbanken = البنك الدولي</p>
+            <p>6. Orsaker = الأسباب</p>
+            <p>7. Fattigdom = الفقر</p>
+            <p>8. Rikedom = الثروة</p>
+            <p>9. Karta = خريطة</p>
+            <p>10. Geografiska faktorn = العامل الجغرافي</p>
+            <p>11. Kapital = رأس المال</p>
+            <p>12. Krig = الحرب</p>
+            <p>13. Efter-kolonialism = ما بعد الاستعمار</p>
+            <p>14. Plattektonik = تكتونية الصفائح</p>
+            <p>15. Utbildning = التعليم</p>
+            <p>16. Jämställdhet = المساواة بين الجنسين</p>
+            <p>17. Normer = الأعراف</p>
+            <p>18. Könsmönster = أنماط النوع الاجتماعي</p>
+            <p>19. Nativitet = معدل المواليد</p>
+            <p>20. Mortalitet = معدل الوفيات</p>
+            <p>21. Naturkatastrofer = الكوارث الطبيعية</p>
+            <p>22. Torka = الجفاف</p>
+            <p>23. Ekvatorn = خط الاستواء</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

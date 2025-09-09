@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Islam - Italienska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="religion.html" class="nav-button">Religion på Italienska</a>
+            <a href="../amnen/kristendom.html" class="nav-button">kristendom på Italienska</a>
+        </div>       
+        <h1 class="video-title">Islam på Italienska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/EmRXGZ02MNQ?si=-xoHmjeE4DmWwk7U" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Monoteism = Monoteismo</p>
+            <p>2. Polyteism = Politeismo</p>
+            <p>3. Muhammed = Maometto</p>
+            <p>4. Mecka = Mecca</p>
+            <p>5. Mellanöstern = Medio Oriente</p>
+            <p>6. Norra Afrika = Nord Africa</p>
+            <p>7. Judendom = Ebraismo</p>
+            <p>8. Kristendom = Cristianesimo</p>
+            <p>9. Allah = Allah</p>
+            <p>10. Ärkeängeln Gabriel = Arcangelo Gabriele</p>
+            <p>11. Koranen = Corano</p>
+            <p>12. Hadither = Hadith</p>
+            <p>13. Islams fem pelare = I cinque pilastri dell'Islam</p>
+            <p>14. Trosbekännelsen = Professione di fede</p>
+            <p>15. Bön = Preghiera</p>
+            <p>16. Allmosor (Zakat) = Elemosina (Zakat)</p>
+            <p>17. Fasta = Digiuno</p>
+            <p>18. Pilgrimsfärd (Hajj) = Pellegrinaggio (Hajj)</p>
+            <p>19. Sunni = Sunnita</p>
+            <p>20. Shia = Sciita</p>
+            <p>21. Jihad = Jihad</p>
+            <p>22. Fundamentalister = Fondamentalisti</p>
+            <p>23. Islamister = Islamisti</p>
+            <p>24. Modernister = Modernisti</p>
+            <p>25. Hijab = Hijab</p>
+            <p>26. Niqab = Niqab</p>
+            <p>27. Burka = Burqa</p>
+            <p>28. Islamisk kalender = Calendario islamico</p>
+            <p>29. Ramadan = Ramadan</p>
+            <p>30. Eid al-Fitr = Eid al-Fitr</p>
+            <p>31. Abrahamitiska religioner = Religioni abramitiche</p>
+            <p>32. Abraham = Abramo</p>
+            <p>33. Mose = Mosè</p>
+            <p>34. Jesus = Gesù</p>
+            <p>35. Treenigheten = Trinità</p>
+            <p>36. Suror = Sure</p>
+            <p>37. Medina = Medina</p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

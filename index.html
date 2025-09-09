@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Multilingo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Multilingo – Lär dig nya ämnen på ditt språk!" />
+    <meta property="og:description" content="Multilingo - Lär dig Ämnen på ditt språk!" />
+    <meta property="og:image" content="https://multilingo.se/images/transparent_logo_multilingo.png" />
+    <meta property="og:url" content="https://multilingo.se/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/transparent_logo_multilingo.png" alt="Multilingo Logo" class="logo">
+        </a>
+        <p class="tagline">Lär dig nya ämnen på ditt språk!</p>
+    </header>
+
+    <main>
+        <div class="grade-toggle">
+            <button id="grade7to9" class="grade-button active">Årskurs 7-9</button>
+            <button id="grade4to6" class="grade-button">Årskurs 4-6</button>
+        </div>
+        
+        <div class="section-heading">
+            <h2>Välj ditt språk</h2>
+        </div>
+        <div class="language-grid">
+            <!-- Språkblock (oförändrade) -->
+            <a href="languages/7-9/albanska/index.html" class="language-option" data-language-name="Albanska" data-link-7-9="languages/7-9/albanska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_albanian.png" alt="Albanska">
+                <span>Albanska</span>
+            </a>
+            <a href="languages/7-9/arabiska/index.html" class="language-option" data-language-name="Arabiska" data-link-7-9="languages/7-9/arabiska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_arabic.png" alt="Arabiska">
+                <span>Arabiska</span>
+            </a>
+            <a href="languages/7-9/italienska/index.html" class="language-option" data-language-name="Italienska" data-link-7-9="languages/7-9/italienska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_italian.png" alt="Italienska">
+                <span>Italienska</span>
+            </a>
+            <a href="languages/7-9/persiska/index.html" class="language-option" data-language-name="Persiska" data-link-7-9="languages/7-9/persiska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_persian.jpg" alt="language-option">
+                <span>Persiska</span>
+            </a>
+            <a href="languages/7-9/polska/index.html" class="language-option" data-language-name="Polska" data-link-7-9="languages/7-9/polska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_polish.png" alt="language-option">
+                <span>Polska</span>
+            </a>
+            <a href="languages/7-9/rumanska/index.html" class="language-option" data-language-name="Rumänska" data-link-7-9="languages/7-9/rumanska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_romanian.webp" alt="Rumänska">
+                <span>Rumänska</span>
+            </a>
+            <a href="languages/7-9/ryska/index.html" class="language-option" data-language-name="Ryska" data-link-7-9="languages/7-9/ryska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_russian.png" alt="Ryska">
+                <span>Ryska</span>
+            </a>
+            <a href="languages/7-9/spanska/index.html" class="language-option" data-language-name="Spanska" data-link-7-9="languages/7-9/spanska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_spanish.jpg" alt="Spanska">
+                <span>Spanska</span>
+            </a>
+            <a href="languages/7-9/thai/index.html" class="language-option" data-language-name="Thailändska" data-link-7-9="languages/7-9/thai/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_thai.jfif" alt="Thailändska">
+                <span>Thailändska</span>
+            </a>
+            <a href="languages/7-9/ukrainska/index.html" class="language-option" data-language-name="Ukrainska" data-link-7-9="languages/7-9/ukrainska/index.html" data-link-4-6="languages/4-6/ukrainska/index.html" data-available-7-9="true" data-available-4-6="true">
+                <img src="images/flag_ukrainian.png" alt="Ukrainska">
+                <span>Ukrainska</span>
+            </a>
+            <a href="languages/7-9/ungerska/index.html" class="language-option" data-language-name="Ungerska" data-link-7-9="languages/7-9/ungerska/index.html" data-link-4-6="" data-available-7-9="true" data-available-4-6="false">
+                <img src="images/flag_hungarian.png" alt="Ungerska">
+                <span>Ungerska</span>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        var gradeSelectionEnabled = true;
+
+        if (gradeSelectionEnabled) {
+            const gradeButtons = document.querySelectorAll('.grade-button');
+            const languageOptions = document.querySelectorAll('.language-option');
+
+            function updateLanguageOptions(selectedGrade) {
+                languageOptions.forEach(option => {
+                    const available = option.getAttribute('data-available-' + selectedGrade) === 'true';
+                    const link = option.getAttribute('data-link-' + selectedGrade);
+                    
+                    if (available && link) {
+                        option.href = link;
+                        option.classList.remove('hidden');
+                    } else {
+                        option.classList.add('hidden');
+                    }
+                });
+            }
+
+            gradeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    gradeButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const selectedGrade = button.id === 'grade7to9' ? '7-9' : '4-6';
+                    updateLanguageOptions(selectedGrade);
+                });
+            });
+
+            const initialGrade = document.querySelector('.grade-button.active').id === 'grade7to9' ? '7-9' : '4-6';
+            updateLanguageOptions(initialGrade);
+        } else {
+            const gradeToggle = document.querySelector('.grade-toggle');
+            gradeToggle.style.display = 'none';
+        }
+    </script>   
+
+    <footer>
+        <a href="contact/om-oss.html">Om oss</a> | <a href="contact/kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>

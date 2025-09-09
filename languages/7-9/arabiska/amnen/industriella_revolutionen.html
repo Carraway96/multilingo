@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Industriella Revolutionen - Arabiska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="historia.html" class="nav-button">Historia på Arabiska</a>
+            <a href="../amnen/nationalism_kolonialism_imperialism.html" class="nav-button">Nationalism, Kolonialism & Imperialism på Arabiska</a>
+        </div>        
+        <h1 class="video-title">Industriella Revolutionen på Arabiska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/SI-e7HWErhk?si=j4Hb4km6PlE2XsLl" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Industrisamhälle = مجتمع صناعي</p>
+            <p>2. Jordbrukssamhälle = مجتمع زراعي</p>
+            <p>3. Skiftesreform = إصلاح الحقول</p>
+            <p>4. Potatis = بطاطس</p>
+            <p>5. Triangelhandeln = تجارة المثلث</p>
+            <p>6. Urbanisering = تحضر</p>
+            <p>7. Hemindustri = صناعة منزلية</p>
+            <p>8. Spinning Jenny = آلة غزل جيني</p>
+            <p>9. Ångmaskin = آلة بخارية</p>
+            <p>10. Arbetsvillkor = ظروف العمل</p>
+            <p>11. Klassklyftor = الفجوة الطبقية</p>
+            <p>12. Arbetarklass = الطبقة العاملة</p>
+            <p>13. Socialism = الاشتراكية</p>
+            <p>14. Liberalism = الليبرالية</p>
+            <p>15. Konservatism = المحافظة</p>
+            <p>16. Kommunism = الشيوعية</p>
+            <p>17. Fackförbund = النقابة</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

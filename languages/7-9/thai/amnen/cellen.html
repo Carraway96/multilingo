@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Cellen - Thailändska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="biologi.html" class="nav-button">Biologi på Thailändska</a>
+            <a href="../amnen/ekologi.html" class="nav-button">Ekologi på Thailändska</a>
+        </div>        
+        <h1 class="video-title">Cellen på Thailändska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/DT8xdcaRqIE?si=Mrh0Csg7SCv1ur7S" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Djurcell = เซลล์สัตว์</p>
+            <p>2. Organeller = ออร์แกเนลล์</p>
+            <p>3. Cellkärna = นิวเคลียส</p>
+            <p>4. Cellmembran = เยื่อหุ้มเซลล์</p>
+            <p>5. Cellplasma (Cytoplasma) = ไซโทพลาซึม</p>
+            <p>6. Mitokondrier = ไมโทคอนเดรีย</p>
+            <p>7. Ribosomer = ไรโบโซม</p>
+            <p>8. Golgiapparaten = กอลจิแอปพาราตัส</p>
+            <p>9. Endoplasmatiskt nätverk (ER) = เอนโดพลาสมิกเรติคูลัม</p>
+            <p>10. Lysosomer = ไลโซโซม</p>
+            <p>11. Cellvägg = ผนังเซลล์</p>
+            <p>12. Kloroplaster = คลอโรพลาสต์</p>
+            <p>13. Vakuol = แวคิวโอล</p>
+
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

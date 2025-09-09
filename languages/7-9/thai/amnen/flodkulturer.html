@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Flodkulturer - Thailändska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="historia.html" class="nav-button">Historia på Thailändska</a>
+            <a href="../amnen/amerikanska_revolutionen.html" class="nav-button">Amerikanska Revolutionen på Thailändska</a>
+        </div>               
+        <h1 class="video-title">Flodkulturer på Thailändska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/XjnMBXDKK68?si=mI51E49zSBFXThl8" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Egypten = อียิปต์</p>
+            <p>2. Nilen = แม่น้ำไนล์</p>
+            <p>3. Epok = ยุค</p>
+            <p>4. Farao = ฟาโรห์</p>
+            <p>5. Jägare och samlare = นักล่าและผู้เก็บของ</p>
+            <p>6. Bördiga halvmånen = พระจันทร์เสี้ยวอันอุดมสมบูรณ์</p>
+            <p>7. Åkerbruk (Jordbruk) = เกษตรกรรม</p>
+            <p>8. Översvämningssäsong = ฤดูน้ำท่วม</p>
+            <p>9. Konstbevattning = การชลประทาน</p>
+            <p>10. Gamla riket = อาณาจักรเก่า</p>
+            <p>11. Mellersta riket = อาณาจักรกลาง</p>
+            <p>12. Nya riket = อาณาจักรใหม่</p>
+            <p>13. Stridsvagn = รถรบ</p>
+            <p>14. Bönder = ชาวนา</p>
+            <p>15. Livegna = ทาส</p>
+            <p>16. Balsamering = การดองศพ</p>
+            <p>17. Civilisation = อารยธรรม</p>
+            <p>18. Inbördeskrig = สงครามกลางเมือง</p>
+            <p>19. Pyramid = พีระมิด</p>
+            <p>20. Hieroglyfer = อักษรภาพ</p>
+            <p>21. Mumifiering = การทำมัมมี่</p>
+            <p>22. Rosettastenen = ศิลารอเซตตา</p>
+            <p>23. Torka = ความแห้งแล้ง</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Levande Organimser - Ungerska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="biologi.html" class="nav-button">Biologi på Ungerska</a>
+            <a href="../amnen/ekologi.html" class="nav-button">Ekologi på Ungerska</a>
+        </div>       
+        <h1 class="video-title">Levande Organimser på Ungerska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/uSrYxttMH5A?si=ERIs3WWKq5SFXvUT" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Liv = Élet</p>
+            <p>2. Levande saker = Élőlények</p>
+            <p>3. Icke-levande saker = Élettelen dolgok</p>
+            <p>4. Biosfären = Bioszféra</p>
+            <p>5. Art = Faj</p>
+            <p>6. Organismer = Szervezetek</p>
+            <p>7. Para sig = Párzani</p>
+            <p>8. Avkomma = Utód</p>
+            <p>9. Hybrid = Hibrid</p>
+            <p>10. Mulåsna = Öszvér</p>
+            <p>11. Häst = Ló</p>
+            <p>12. Åsna = Szamár</p>
+            <p>13. Ras = Fajta</p>
+            <p>14. Variation inom arter = Fajon belüli változatosság</p>
+            <p>15. Chihuahua = Csivava</p>
+            <p>16. Grand danois = Német dog</p>
+            <p>17. Klassifikation = Osztályozás</p>
+            <p>18. Carl von Linné = Carl von Linné</p>
+            <p>19. Vetenskapliga namn = Tudományos név</p>
+            <p>20. Latin = Latin</p>
+            <p>21. Grekiska = Görög</p>
+            <p>22. Biologer = Biológusok</p>
+            <p>23. Djur = Állatok</p>
+            <p>24. Växter = Növények</p>
+            <p>25. Svampar = Gombák</p>
+            <p>26. Celler = Sejtek</p>
+            <p>27. Förökning = Szaporodás</p>
+            <p>28. Arvsanlag = Örökletes tulajdonságok</p>
+            <p>29. Näringsupptag = Tápanyagfelvétel</p>
+            <p>30. Energi = Energia</p>
+            <p>31. Utsöndring = Kiválasztás</p>
+            <p>32. Rörelse = Mozgás</p>
+            <p>33. Reaktion på omgivningen = Környezeti reakció</p>
+            <p>34. Anpassning = Alkalmazkodás</p>
+            <p>35. Utveckling = Fejlődés</p>
+            <p>36. Kriterier för liv = Az élet kritériumai</p>
+            <p>37. Begrepp = Fogalom</p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

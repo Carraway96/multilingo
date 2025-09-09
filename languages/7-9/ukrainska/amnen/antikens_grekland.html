@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Antikens Grekland - Ukrainska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="historia.html" class="nav-button">Historia på Ukrainska</a>
+            <a href="../amnen/romarriket.html" class="nav-button">Romarriket på Ukrainska</a>
+        </div>        
+        <h1 class="video-title">Antikens Grekland på Ukrainska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/r80zw75-KT8?si=ejEydMAyy4ggQ1Df" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Antikens Grekland = Стародавня Греція</p>
+            <p>2. Demokrati = Демократія</p>
+            <p>3. Direkt demokrati = Пряма демократія</p>
+            <p>4. Aten = Афіни</p>
+            <p>5. Sparta = Спарта</p>
+            <p>6. Polis (stadsstat) = Поліс (місто-держава)</p>
+            <p>7. Olympiska spelen = Олімпійські ігри</p>
+            <p>8. Filosofi = Філософія</p>
+            <p>9. Sokrates = Сократ</p>
+            <p>10. Platon = Платон</p>
+            <p>11. Aristoteles = Аристотель</p>
+            <p>12. Polyteism = Політеїзм</p>
+            <p>13. Zeus = Зевс</p>
+            <p>14. Hera = Гера</p>
+            <p>15. Poseidon = Посейдон</p>
+            <p>16. Hades = Аїд</p>
+            <p>17. Demeter = Деметра</p>
+            <p>18. Persefone = Персефона</p>
+            <p>19. Dionysos = Діоніс</p>
+            <p>20. Tartaros = Тартар</p>
+            <p>21. Elysion (de lyckliga fälten) = Елізіум (щасливі поля)</p>
+            <p>22. Kulturarv = Культурна спадщина</p>
+            <p>23. Mytologi = Міфологія</p>
+            <p>24. Hippokrates = Гіппократ</p>
+            <p>25. Vetenskapens början = Початок науки</p>
+            <p>26. Tektoniska plattor = Тектонічні плити</p>
+            <p>27. Kolonisation = Колонізація</p>
+            <p>28. Handel runt Medelhavet = Торгівля навколо Середземного моря</p>
+            <p>29. Teater (körsång, tragedi, komedi) = Театр (хоровий спів, трагедія, комедія)</p>
+            <p>30. Homeros ('Iliaden' och 'Odysséen') = Гомер ('Іліада' та 'Одіссея')</p>
+                    </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

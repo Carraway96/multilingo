@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Levande Organimser - Thailändska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="biologi.html" class="nav-button">Biologi på Thailändska</a>
+            <a href="../amnen/ekologi.html" class="nav-button">Ekologi på Thailändska</a>
+        </div>       
+        <h1 class="video-title">Levande Organimser på Thailändska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/V8a4yDnao2E?si=mzdhmDjERGc4urhn" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Liv = ชีวิต</p>
+            <p>2. Levande saker = สิ่งมีชีวิต</p>
+            <p>3. Icke-levande saker = สิ่งไม่มีชีวิต</p>
+            <p>4. Biosfären = ชีวมณฑล</p>
+            <p>5. Art = สปีชีส์</p>
+            <p>6. Organismer = สิ่งมีชีวิต</p>
+            <p>7. Para sig = ผสมพันธุ์</p>
+            <p>8. Avkomma = ลูกหลาน</p>
+            <p>9. Hybrid = ลูกผสม</p>
+            <p>10. Mulåsna = ล่อ</p>
+            <p>11. Häst = ม้า</p>
+            <p>12. Åsna = ลา</p>
+            <p>13. Ras = พันธุ์</p>
+            <p>14. Variation inom arter = ความหลากหลายภายในสปีชีส์</p>
+            <p>15. Chihuahua = ชิวาวา</p>
+            <p>16. Grand danois = แกรนด์เดน</p>
+            <p>17. Klassifikation = การจัดจำแนก</p>
+            <p>18. Carl von Linné = คาร์ล ฟอน ลินเนียส</p>
+            <p>19. Vetenskapliga namn = ชื่อวิทยาศาสตร์</p>
+            <p>20. Latin = ละติน</p>
+            <p>21. Grekiska = กรีก</p>
+            <p>22. Biologer = นักชีววิทยา</p>
+            <p>23. Djur = สัตว์</p>
+            <p>24. Växter = พืช</p>
+            <p>25. Svampar = เห็ดรา</p>
+            <p>26. Celler = เซลล์</p>
+            <p>27. Förökning = การขยายพันธุ์</p>
+            <p>28. Arvsanlag = พันธุกรรม</p>
+            <p>29. Näringsupptag = การดูดซึมสารอาหาร</p>
+            <p>30. Energi = พลังงาน</p>
+            <p>31. Utsöndring = การขับถ่าย</p>
+            <p>32. Rörelse = การเคลื่อนไหว</p>
+            <p>33. Reaktion på omgivningen = ปฏิกิริยาต่อสิ่งแวดล้อม</p>
+            <p>34. Anpassning = การปรับตัว</p>
+            <p>35. Utveckling = การพัฒนา</p>
+            <p>36. Kriterier för liv = เกณฑ์สำหรับชีวิต</p>
+            <p>37. Begrepp = แนวคิด</p>
+                    </div>
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Amerikanska Revolutionen - Thailändska - Multilingo</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html">
+            <img src="../../../../images/transparent_logo_multilingo.png" alt="Multilingo Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="navigation-buttons">
+            <a href="religion.html" class="nav-button">Religion på Thailändska</a>
+            <a href="../amnen/kristendom.html" class="nav-button">Kristendom på Thailändska</a>
+        </div>        
+        <h1 class="video-title">Judendom på Thailändska</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/67fLgvDXkTQ?si=3qwt9LcacHmZOo2m" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <button id="toggleConcepts">Begrepp</button>
+        <div id="conceptsText">
+            <p>Begrepp:</p>
+            <p>1. Monoteism = เอกเทวนิยม</p>
+            <p>2. Abrahamitiska religioner = ศาสนาอับราฮัม</p>
+            <p>3. Stamfader = บรรพบุรุษ</p>
+            <p>4. Klagomuren = กำแพงร้องไห้</p>
+            <p>5. Pesach = เทศกาลปัสกา</p>
+            <p>6. Sabbath = วันสะบาโต</p>
+            <p>7. Budorden = บัญญัติสิบประการ</p>
+            <p>8. Kosher = โคเชอร์</p>
+            <p>9. Antisemitism = การต่อต้านชาวยิว</p>
+            <p>10. Diaspora = การกระจัดกระจายของชาวยิว</p>
+            <p>11. Synagoga = โบสถ์ยิว</p>
+            <p>12. Tanak = ตานัค (คัมภีร์)</p>
+            <p>13. Torarullarna = ม้วนคัมภีร์โทราห์</p>
+            <p>14. Talmud = คัมภีร์ทัลมุด</p>
+        </div>             
+    </main>
+
+    <script>
+        document.getElementById('toggleConcepts').addEventListener('click', function() {
+            var conceptsText = document.getElementById('conceptsText');
+            if (conceptsText.style.display === 'none' || conceptsText.style.display === '') {
+                conceptsText.style.display = 'block';
+                this.textContent = 'Dölj begrepp';
+            } else {
+                conceptsText.style.display = 'none';
+                this.textContent = 'Begrepp';
+            }
+        });
+
+        const buttons = document.querySelectorAll('.content-button');
+        const sections = document.querySelectorAll('.content-section');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Dölj alla sektioner först
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+    
+                // Visa vald sektion
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).style.display = 'block';
+            });
+        });
+    </script>    
+    
+    <script>
+        const sentences = document.querySelectorAll('.sentence');
+    
+        sentences.forEach(sentence => {
+            sentence.addEventListener('mouseenter', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.add('highlight'));
+            });
+    
+            sentence.addEventListener('mouseleave', () => {
+                const sentenceId = sentence.getAttribute('data-sentence');
+                const matchingSentences = document.querySelectorAll(`.sentence[data-sentence='${sentenceId}']`);
+                matchingSentences.forEach(s => s.classList.remove('highlight'));
+            });
+        });
+    </script>    
+
+    <footer>
+        <a href="../../../../contact/om-oss.html">Om oss</a> | <a href="../../../../contact/kontakt.html">Kontakt oss</a>
+    </footer>
+</body>
+</html>
